@@ -1,2 +1,0 @@
-# derbaumvr.github.io
-@vartives

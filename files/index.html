@@ -3,11 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✞ Jesus Files ✞</title>
-	
+    <title>Download Buttons</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #3b86c4;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .download-container {
+            display: flex;
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            flex: 1;
+            min-width: 280px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(30px);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .download-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .download-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .platform-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .download-card:hover .platform-icon {
+            transform: scale(1.15);
+        }
+
+        .platform-name {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .platform-details {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .download-button {
+            background: linear-gradient(45deg, #3b82f6, #6366f1);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .download-button i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .download-card {
+                flex: 100%;
+                min-width: auto;
+            }
+            
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>You cant do anything here</h1>
-    <p>Just return to jesusleaks.xyz</p>
+    <div class="download-container">
+        <!-- Windows Download Card -->
+        <div class="download-card">
+            <div class="platform-icon">🪟</div>
+            <h2 class="platform-name">TMA SRC</h2>
+            <p class="platform-details">Version 1.1.7 | Source Code</p>
+            <a href="TMA.zip" class="download-button">
+                <i class="fas fa-download"></i>
+                Download
+            </a>
+        </div>
+		<div class="download-card">
+            <div class="platform-icon">🪟</div>
+            <h2 class="platform-name">STEAL SRC</h2>
+            <p class="platform-details">Version idfk | Source Code</p>
+            <a href="TMA.zip" class="download-button">
+                <i class="fas fa-download"></i>
+                Download
+            </a>
+        </div>
+		<div class="download-card">
+            <div class="platform-icon">🪟</div>
+            <h2 class="platform-name">...</h2>
+            <p class="platform-details">Version ... | Source Code</p>
+            <a href="TMA.zip" class="download-button">
+                <i class="fas fa-download"></i>
+                ...
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 150);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.download-card').forEach((card) => {
+            observer.observe(card);
+        });
+
+        // Add ripple effect to download buttons
+        document.querySelectorAll('.download-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                let ripple = document.createElement('div');
+                ripple.style.position = 'absolute';
+                ripple.style.width = '5px';
+                ripple.style.height = '5px';
+                ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+                ripple.style.borderRadius = '50%';
+                ripple.style.transform = 'translate(-50%, -50%)';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.animation = 'ripple 0.6s linear';
+                
+                const rect = button.getBoundingClientRect();
+                ripple.style.left = `${e.clientX - rect.left}px`;
+                ripple.style.top = `${e.clientY - rect.top}px`;
+                
+                button.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    </script>
+
+    <style>
+        @keyframes ripple {
+            from {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: translate(-50%, -50%) scale(20);
+                opacity: 0;
+            }
+        }
+    </style>
 </body>
 </html>

@@ -41,23 +41,37 @@
             color: #FFA500;
             text-shadow: 0px 0px 15px #FFA500;
         }
-
-        .jesus-image {
+		
+		.jesus-image {
     position: absolute;
     top: 20px;
-    max-width: 100%;  /* Bild passt sich an die Fenstergröße an */
-    height: auto;     /* Höhe wird proportional angepasst */
+    width: 300px; /* Standardgröße für große Bildschirme */
+    height: auto; /* Beibehaltung des Seitenverhältnisses */
     border-radius: 10px;
     box-shadow: 0px 0px 20px #000;
     animation: float 3s ease-in-out infinite;
 }
 
 .left {
-    left: 10px;
+    left: 20px;
 }
 
 .right {
-    right: 10px;
+    right: 20px;
+}
+
+/* Media Query für kleinere Bildschirme (z.B. Smartphones) */
+@media (max-width: 768px) {
+    .jesus-image {
+        width: 200px; /* Kleinere Größe auf Tablets oder Handys */
+    }
+}
+
+/* Media Query für noch kleinere Bildschirme (z.B. Handys im Hochformat) */
+@media (max-width: 480px) {
+    .jesus-image {
+        width: 150px; /* Sehr kleine Größe für kleine Handys */
+    }
 }
 
         /* Keyframe Animations */

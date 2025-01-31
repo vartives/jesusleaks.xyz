@@ -42,24 +42,23 @@
             text-shadow: 0px 0px 15px #FFA500;
         }
 
-        /* Jesus Image Animation */
         .jesus-image {
-            position: absolute;
-            top: 20px;
-            width: 300px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px #000;
-            animation: float 3s ease-in-out infinite;
-        }
+    position: absolute;
+    top: 20px;
+    max-width: 100%;  /* Bild passt sich an die Fenstergröße an */
+    height: auto;     /* Höhe wird proportional angepasst */
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px #000;
+    animation: float 3s ease-in-out infinite;
+}
 
-        .left {
-            left: 20px;
-        }
+.left {
+    left: 10px;
+}
 
-        .right {
-            right: 20px;
-        }
+.right {
+    right: 10px;
+}
 
         /* Keyframe Animations */
         @keyframes fadeIn {

